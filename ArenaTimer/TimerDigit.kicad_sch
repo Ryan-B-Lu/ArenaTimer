@@ -1,0 +1,694 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "a7d0cc39-e5f0-4ee6-9985-2d6be0f52958")
+	(paper "B")
+	(lib_symbols)
+	(wire
+		(pts
+			(xy 344.17 127) (xy 356.87 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0c572d20-3303-435e-bf45-d3259d73ce02")
+	)
+	(wire
+		(pts
+			(xy 77.47 127) (xy 91.44 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4312ce90-ddaa-4af5-b46e-f0f7f622cecc")
+	)
+	(wire
+		(pts
+			(xy 306.07 127) (xy 320.04 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "70bcf383-d53a-4182-a0fd-7d83336a64a7")
+	)
+	(wire
+		(pts
+			(xy 229.87 127) (xy 243.84 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7cc13616-0873-468f-9ab8-75e8101c6005")
+	)
+	(wire
+		(pts
+			(xy 153.67 127) (xy 167.64 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9afd5efd-8d0c-4a4a-b59f-081ce6b75149")
+	)
+	(wire
+		(pts
+			(xy 191.77 127) (xy 205.74 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "de30b818-76f0-4104-81d8-912f2935d010")
+	)
+	(wire
+		(pts
+			(xy 267.97 127) (xy 281.94 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e5a793da-fc60-4565-884e-428f2baaeb5a")
+	)
+	(wire
+		(pts
+			(xy 115.57 127) (xy 129.54 127)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "efb37b84-6bbc-4b31-b629-3ca1fa600487")
+	)
+	(text "D"
+		(exclude_from_sim no)
+		(at 216.662 127.508 0)
+		(effects
+			(font
+				(size 7.62 7.62)
+				(thickness 1.524)
+				(bold yes)
+			)
+		)
+		(uuid "280d12d1-a2a5-4bfd-80d6-7e120ae5fb7b")
+	)
+	(text "C"
+		(exclude_from_sim no)
+		(at 178.054 127.762 0)
+		(effects
+			(font
+				(size 7.62 7.62)
+				(thickness 1.524)
+				(bold yes)
+			)
+		)
+		(uuid "2a4bbbc3-bfbf-41b8-8a85-de8e1e559826")
+	)
+	(text "A"
+		(exclude_from_sim no)
+		(at 102.87 128.016 0)
+		(effects
+			(font
+				(size 7.62 7.62)
+				(thickness 1.524)
+				(bold yes)
+			)
+		)
+		(uuid "547e7956-8e0a-4763-bc88-91d2fd9ecc00")
+	)
+	(text "G"
+		(exclude_from_sim no)
+		(at 331.47 127.254 0)
+		(effects
+			(font
+				(size 7.62 7.62)
+				(thickness 1.524)
+				(bold yes)
+			)
+		)
+		(uuid "6e5df92b-c512-43cb-9565-235293056443")
+	)
+	(text "F"
+		(exclude_from_sim no)
+		(at 293.624 127 0)
+		(effects
+			(font
+				(size 7.62 7.62)
+				(thickness 1.524)
+				(bold yes)
+			)
+		)
+		(uuid "814ba8da-dd37-45f0-92c3-a83326504722")
+	)
+	(text "E"
+		(exclude_from_sim no)
+		(at 255.016 127.508 0)
+		(effects
+			(font
+				(size 7.62 7.62)
+				(thickness 1.524)
+				(bold yes)
+			)
+		)
+		(uuid "c40fda59-c193-4846-934a-4791485d2b92")
+	)
+	(text "B"
+		(exclude_from_sim no)
+		(at 140.208 127.254 0)
+		(effects
+			(font
+				(size 7.62 7.62)
+				(thickness 1.524)
+				(bold yes)
+			)
+		)
+		(uuid "c512303a-a435-452c-aa7c-c09757e87771")
+	)
+	(hierarchical_label "DOUT"
+		(shape output)
+		(at 356.87 127 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+			(justify left)
+		)
+		(uuid "06cf7c53-6c8a-4a45-92fd-f4793b2dea03")
+	)
+	(hierarchical_label "DIN"
+		(shape input)
+		(at 77.47 127 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7405ffc5-10df-4738-9045-39bea7af1bf0")
+	)
+	(sheet
+		(at 320.04 119.38)
+		(size 24.13 15.24)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "49b3b2e8-eaca-4342-a9c1-4ee5e72d12fd")
+		(property "Sheetname" "TimerSegment6"
+			(at 320.04 118.6684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "TimerSegment.kicad_sch"
+			(at 320.04 135.2046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "DOUT" output
+			(at 344.17 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "d285de16-7b62-4a95-9edf-5d6e9a2ec02c")
+		)
+		(pin "DIN" input
+			(at 320.04 127 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "95c7e003-5b4f-41a8-bb20-fe3cc56fb70c")
+		)
+		(instances
+			(project "ArenaTimer"
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
+					(page "43")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/550c06b4-2314-4483-8dfa-d8214f57e69f"
+					(page "44")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/997868bc-e012-4455-80e1-c94eeb2316c4"
+					(page "45")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b14c166c-5f20-4c3f-9ed2-1dfc0b576197"
+					(page "46")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/906ae4ed-3729-49a6-88ec-dc33e883337e"
+					(page "47")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b99c7876-8e34-46b3-b3c1-13d21c7534d8"
+					(page "48")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 243.84 119.38)
+		(size 24.13 15.24)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "55ba9e3e-2899-4833-94c6-3319ca97a7bc")
+		(property "Sheetname" "TimerSegment4"
+			(at 243.84 118.6684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "TimerSegment.kicad_sch"
+			(at 243.84 135.2046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "DOUT" output
+			(at 267.97 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "059b0bdb-54a6-4757-8d68-a44c20cd4483")
+		)
+		(pin "DIN" input
+			(at 243.84 127 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "1da6d3a9-b035-49d5-ab13-3b5d4810b185")
+		)
+		(instances
+			(project "ArenaTimer"
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
+					(page "31")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/550c06b4-2314-4483-8dfa-d8214f57e69f"
+					(page "32")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/997868bc-e012-4455-80e1-c94eeb2316c4"
+					(page "33")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b14c166c-5f20-4c3f-9ed2-1dfc0b576197"
+					(page "34")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/906ae4ed-3729-49a6-88ec-dc33e883337e"
+					(page "35")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b99c7876-8e34-46b3-b3c1-13d21c7534d8"
+					(page "36")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 167.64 119.38)
+		(size 24.13 15.24)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "5dfb114c-24fd-4ea4-86ef-cdb89b49f213")
+		(property "Sheetname" "TimerSegment2"
+			(at 167.64 118.6684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "TimerSegment.kicad_sch"
+			(at 167.64 135.2046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "DOUT" output
+			(at 191.77 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "eac5ec64-a141-4b08-8b03-3fbd67b4f826")
+		)
+		(pin "DIN" input
+			(at 167.64 127 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "bffa8b48-3b7d-47b7-8f68-795f37e941aa")
+		)
+		(instances
+			(project "ArenaTimer"
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
+					(page "19")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/550c06b4-2314-4483-8dfa-d8214f57e69f"
+					(page "20")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/997868bc-e012-4455-80e1-c94eeb2316c4"
+					(page "21")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b14c166c-5f20-4c3f-9ed2-1dfc0b576197"
+					(page "22")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/906ae4ed-3729-49a6-88ec-dc33e883337e"
+					(page "23")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b99c7876-8e34-46b3-b3c1-13d21c7534d8"
+					(page "24")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 281.94 119.38)
+		(size 24.13 15.24)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "7f94069f-9e4a-4e3b-80ab-e90690462680")
+		(property "Sheetname" "TimerSegment5"
+			(at 281.94 118.6684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "TimerSegment.kicad_sch"
+			(at 281.94 135.2046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "DOUT" output
+			(at 306.07 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "ff52d54a-f617-4cdc-bebc-d3c13edefdca")
+		)
+		(pin "DIN" input
+			(at 281.94 127 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "40c2a58f-0db7-4571-a727-7eb08c0164fb")
+		)
+		(instances
+			(project "ArenaTimer"
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
+					(page "37")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/550c06b4-2314-4483-8dfa-d8214f57e69f"
+					(page "38")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/997868bc-e012-4455-80e1-c94eeb2316c4"
+					(page "39")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b14c166c-5f20-4c3f-9ed2-1dfc0b576197"
+					(page "40")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/906ae4ed-3729-49a6-88ec-dc33e883337e"
+					(page "41")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b99c7876-8e34-46b3-b3c1-13d21c7534d8"
+					(page "42")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 91.44 119.38)
+		(size 24.13 15.24)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "94b1ba2e-1fa2-4fa7-95ce-9231430d266b")
+		(property "Sheetname" "TimerSegment"
+			(at 91.44 118.6684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "TimerSegment.kicad_sch"
+			(at 91.44 135.2046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "DOUT" output
+			(at 115.57 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "7155fc81-f19c-4b0f-b76a-13fd64042753")
+		)
+		(pin "DIN" input
+			(at 91.44 127 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "bd922095-a2c9-472f-b278-806dc8932345")
+		)
+		(instances
+			(project "ArenaTimer"
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
+					(page "12")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 205.74 119.38)
+		(size 24.13 15.24)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "bd6d5a1c-a818-4282-bd0a-709230f0f564")
+		(property "Sheetname" "TimerSegment3"
+			(at 205.74 118.6684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "TimerSegment.kicad_sch"
+			(at 205.74 135.2046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "DOUT" output
+			(at 229.87 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "3bf38342-54f4-488d-86f9-3c1e0d95f2e9")
+		)
+		(pin "DIN" input
+			(at 205.74 127 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "bbf8c4e0-af1b-4052-814c-7f562df4db83")
+		)
+		(instances
+			(project "ArenaTimer"
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
+					(page "25")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/550c06b4-2314-4483-8dfa-d8214f57e69f"
+					(page "26")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/997868bc-e012-4455-80e1-c94eeb2316c4"
+					(page "27")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b14c166c-5f20-4c3f-9ed2-1dfc0b576197"
+					(page "28")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/906ae4ed-3729-49a6-88ec-dc33e883337e"
+					(page "29")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b99c7876-8e34-46b3-b3c1-13d21c7534d8"
+					(page "30")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 129.54 119.38)
+		(size 24.13 15.24)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "c126b952-37c8-49f8-8a2a-98bea4822328")
+		(property "Sheetname" "TimerSegment1"
+			(at 129.54 118.6684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "TimerSegment.kicad_sch"
+			(at 129.54 135.2046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "DOUT" output
+			(at 153.67 127 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "6ceafc6d-fd31-4268-9219-925e55e56af1")
+		)
+		(pin "DIN" input
+			(at 129.54 127 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "0c7228cd-e8c8-4899-b018-4be3719975e7")
+		)
+		(instances
+			(project "ArenaTimer"
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
+					(page "13")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/550c06b4-2314-4483-8dfa-d8214f57e69f"
+					(page "14")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/997868bc-e012-4455-80e1-c94eeb2316c4"
+					(page "15")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b14c166c-5f20-4c3f-9ed2-1dfc0b576197"
+					(page "16")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/906ae4ed-3729-49a6-88ec-dc33e883337e"
+					(page "17")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b99c7876-8e34-46b3-b3c1-13d21c7534d8"
+					(page "18")
+				)
+			)
+		)
+	)
+)
