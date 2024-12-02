@@ -233,7 +233,7 @@
 				)
 				(justify right)
 			)
-			(uuid "d285de16-7b62-4a95-9edf-5d6e9a2ec02c")
+			(uuid "04598d33-b072-41b5-b955-3825b913e3d9")
 		)
 		(pin "DIN" input
 			(at 320.04 127 180)
@@ -243,27 +243,15 @@
 				)
 				(justify left)
 			)
-			(uuid "95c7e003-5b4f-41a8-bb20-fe3cc56fb70c")
+			(uuid "54aca978-5b9f-44d1-b25b-ec3a77fc430e")
 		)
 		(instances
 			(project "ArenaTimer"
 				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
 					(page "43")
 				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/550c06b4-2314-4483-8dfa-d8214f57e69f"
-					(page "44")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/997868bc-e012-4455-80e1-c94eeb2316c4"
-					(page "45")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b14c166c-5f20-4c3f-9ed2-1dfc0b576197"
-					(page "46")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/906ae4ed-3729-49a6-88ec-dc33e883337e"
-					(page "47")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b99c7876-8e34-46b3-b3c1-13d21c7534d8"
-					(page "48")
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/a0f1a759-6364-40b7-bd20-4e39ff3f7835"
+					(page "53")
 				)
 			)
 		)
@@ -306,7 +294,7 @@
 				)
 				(justify right)
 			)
-			(uuid "059b0bdb-54a6-4757-8d68-a44c20cd4483")
+			(uuid "3dffb536-e38e-4df9-8737-0f0ed03d4a41")
 		)
 		(pin "DIN" input
 			(at 243.84 127 180)
@@ -316,27 +304,15 @@
 				)
 				(justify left)
 			)
-			(uuid "1da6d3a9-b035-49d5-ab13-3b5d4810b185")
+			(uuid "6832a574-09e9-476a-95b2-70bc8b91c97a")
 		)
 		(instances
 			(project "ArenaTimer"
 				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
 					(page "31")
 				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/550c06b4-2314-4483-8dfa-d8214f57e69f"
-					(page "32")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/997868bc-e012-4455-80e1-c94eeb2316c4"
-					(page "33")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b14c166c-5f20-4c3f-9ed2-1dfc0b576197"
-					(page "34")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/906ae4ed-3729-49a6-88ec-dc33e883337e"
-					(page "35")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b99c7876-8e34-46b3-b3c1-13d21c7534d8"
-					(page "36")
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/a0f1a759-6364-40b7-bd20-4e39ff3f7835"
+					(page "50")
 				)
 			)
 		)
@@ -379,7 +355,7 @@
 				)
 				(justify right)
 			)
-			(uuid "eac5ec64-a141-4b08-8b03-3fbd67b4f826")
+			(uuid "6b81d871-33d3-462b-9eff-456f65fee32a")
 		)
 		(pin "DIN" input
 			(at 167.64 127 180)
@@ -389,27 +365,15 @@
 				)
 				(justify left)
 			)
-			(uuid "bffa8b48-3b7d-47b7-8f68-795f37e941aa")
+			(uuid "484df907-7d93-4c2b-a113-9d30fabf5412")
 		)
 		(instances
 			(project "ArenaTimer"
 				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
 					(page "19")
 				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/550c06b4-2314-4483-8dfa-d8214f57e69f"
-					(page "20")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/997868bc-e012-4455-80e1-c94eeb2316c4"
-					(page "21")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b14c166c-5f20-4c3f-9ed2-1dfc0b576197"
-					(page "22")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/906ae4ed-3729-49a6-88ec-dc33e883337e"
-					(page "23")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b99c7876-8e34-46b3-b3c1-13d21c7534d8"
-					(page "24")
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/a0f1a759-6364-40b7-bd20-4e39ff3f7835"
+					(page "52")
 				)
 			)
 		)
@@ -452,7 +416,7 @@
 				)
 				(justify right)
 			)
-			(uuid "ff52d54a-f617-4cdc-bebc-d3c13edefdca")
+			(uuid "f5b96c81-818a-4cfb-a9a8-f9c516af3970")
 		)
 		(pin "DIN" input
 			(at 281.94 127 180)
@@ -462,27 +426,15 @@
 				)
 				(justify left)
 			)
-			(uuid "40c2a58f-0db7-4571-a727-7eb08c0164fb")
+			(uuid "02e62a2d-5d4e-4c9b-97ae-7e8fa037f177")
 		)
 		(instances
 			(project "ArenaTimer"
 				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
 					(page "37")
 				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/550c06b4-2314-4483-8dfa-d8214f57e69f"
-					(page "38")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/997868bc-e012-4455-80e1-c94eeb2316c4"
-					(page "39")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b14c166c-5f20-4c3f-9ed2-1dfc0b576197"
-					(page "40")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/906ae4ed-3729-49a6-88ec-dc33e883337e"
-					(page "41")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b99c7876-8e34-46b3-b3c1-13d21c7534d8"
-					(page "42")
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/a0f1a759-6364-40b7-bd20-4e39ff3f7835"
+					(page "54")
 				)
 			)
 		)
@@ -525,7 +477,7 @@
 				)
 				(justify right)
 			)
-			(uuid "7155fc81-f19c-4b0f-b76a-13fd64042753")
+			(uuid "5fde82e3-bbc4-45e3-be18-e61da742c14b")
 		)
 		(pin "DIN" input
 			(at 91.44 127 180)
@@ -535,12 +487,15 @@
 				)
 				(justify left)
 			)
-			(uuid "bd922095-a2c9-472f-b278-806dc8932345")
+			(uuid "f6bd5b88-fa58-46c1-80f7-cd9ddf1bff43")
 		)
 		(instances
 			(project "ArenaTimer"
 				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
 					(page "12")
+				)
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/a0f1a759-6364-40b7-bd20-4e39ff3f7835"
+					(page "55")
 				)
 			)
 		)
@@ -583,7 +538,7 @@
 				)
 				(justify right)
 			)
-			(uuid "3bf38342-54f4-488d-86f9-3c1e0d95f2e9")
+			(uuid "9fdac8f2-4961-49cb-9a08-e8af64601428")
 		)
 		(pin "DIN" input
 			(at 205.74 127 180)
@@ -593,27 +548,15 @@
 				)
 				(justify left)
 			)
-			(uuid "bbf8c4e0-af1b-4052-814c-7f562df4db83")
+			(uuid "30df05a6-7274-43c9-a93e-ecb2126c72c8")
 		)
 		(instances
 			(project "ArenaTimer"
 				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
 					(page "25")
 				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/550c06b4-2314-4483-8dfa-d8214f57e69f"
-					(page "26")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/997868bc-e012-4455-80e1-c94eeb2316c4"
-					(page "27")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b14c166c-5f20-4c3f-9ed2-1dfc0b576197"
-					(page "28")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/906ae4ed-3729-49a6-88ec-dc33e883337e"
-					(page "29")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b99c7876-8e34-46b3-b3c1-13d21c7534d8"
-					(page "30")
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/a0f1a759-6364-40b7-bd20-4e39ff3f7835"
+					(page "51")
 				)
 			)
 		)
@@ -656,7 +599,7 @@
 				)
 				(justify right)
 			)
-			(uuid "6ceafc6d-fd31-4268-9219-925e55e56af1")
+			(uuid "634b17fc-e875-466c-aa11-1f188b1604cd")
 		)
 		(pin "DIN" input
 			(at 129.54 127 180)
@@ -666,27 +609,15 @@
 				)
 				(justify left)
 			)
-			(uuid "0c7228cd-e8c8-4899-b018-4be3719975e7")
+			(uuid "8586c641-cab8-4371-a36e-1667dec36f08")
 		)
 		(instances
 			(project "ArenaTimer"
 				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/bfdbd2bc-3f27-4aeb-afb3-f0a4af7d4e67"
 					(page "13")
 				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/550c06b4-2314-4483-8dfa-d8214f57e69f"
-					(page "14")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/997868bc-e012-4455-80e1-c94eeb2316c4"
-					(page "15")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b14c166c-5f20-4c3f-9ed2-1dfc0b576197"
-					(page "16")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/906ae4ed-3729-49a6-88ec-dc33e883337e"
-					(page "17")
-				)
-				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/b99c7876-8e34-46b3-b3c1-13d21c7534d8"
-					(page "18")
+				(path "/2260d661-eea4-49a1-9161-db3d613eeecd/a0f1a759-6364-40b7-bd20-4e39ff3f7835"
+					(page "56")
 				)
 			)
 		)
