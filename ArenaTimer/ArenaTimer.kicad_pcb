@@ -4499,7 +4499,7 @@
 		(descr "SMD Solder Jumper, 1x1.5mm, rounded Pads, 0.3mm gap, open")
 		(tags "solder jumper open")
 		(property "Reference" "JP1"
-			(at -2.9464 0.0508 360)
+			(at -2.9464 0.0508 0)
 			(layer "F.SilkS")
 			(uuid "27ad1412-42bd-42a8-8ac9-454b8c5e76e2")
 			(effects
@@ -4510,7 +4510,7 @@
 			)
 		)
 		(property "Value" "Jumper_2_Open"
-			(at 0 1.9 360)
+			(at 0 1.9 0)
 			(layer "F.Fab")
 			(uuid "867532e1-b7c6-479a-b9d4-73a15a0f8558")
 			(effects
@@ -9991,7 +9991,7 @@
 		(property "Reference" ""
 			(at 0 0 0)
 			(layer "F.SilkS")
-			(uuid "cb5d01b1-8d97-4aa7-9231-7c40aea18938")
+			(uuid "32368a60-d136-4387-afa9-2a4268ab4db9")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10002,7 +10002,7 @@
 		(property "Value" ""
 			(at 0 0 0)
 			(layer "F.Fab")
-			(uuid "a91de608-d23c-40b8-8c32-10ac3adb826f")
+			(uuid "e1fdac20-a710-4649-b309-f92b2ff4fd4d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10051,7 +10051,7 @@
 			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "4d4e1531-c34c-4761-b39b-e6d8e39ffb3a")
+			(uuid "eae8d674-7275-49bb-8b63-5bac1de50807")
 		)
 	)
 	(footprint "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
@@ -12063,7 +12063,7 @@
 		(property "Reference" ""
 			(at 0 0 0)
 			(layer "F.SilkS")
-			(uuid "cb5d01b1-8d97-4aa7-9231-7c40aea18938")
+			(uuid "c319e902-3b8c-4008-b5bd-7a7a72c0cf0c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12074,7 +12074,7 @@
 		(property "Value" ""
 			(at 0 0 0)
 			(layer "F.Fab")
-			(uuid "a91de608-d23c-40b8-8c32-10ac3adb826f")
+			(uuid "71dc1e2f-98de-4299-bafb-446661b1a5f0")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12123,7 +12123,7 @@
 			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "4d4e1531-c34c-4761-b39b-e6d8e39ffb3a")
+			(uuid "55a0e575-8a1d-4a06-8085-cad93211726b")
 		)
 	)
 	(footprint "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
@@ -12805,7 +12805,7 @@
 			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "4d4e1531-c34c-4761-b39b-e6d8e39ffb3a")
+			(uuid "746fe660-5bf1-44b2-8a77-a4b8a8a5a56c")
 		)
 	)
 	(footprint "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
@@ -13673,7 +13673,7 @@
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "J3"
-			(at -2.54 0.0304 360)
+			(at -2.54 0.0304 0)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "9e097e14-e689-4efd-b7b6-d1e84131132b")
@@ -13685,7 +13685,7 @@
 			)
 		)
 		(property "Value" "Conn_01x02_Pin"
-			(at 0 4.87 360)
+			(at 0 4.87 0)
 			(layer "F.Fab")
 			(uuid "69aa5431-7f8d-4bf3-82a0-e1c80b08cfc0")
 			(effects
@@ -18803,7 +18803,7 @@
 		(property "Reference" ""
 			(at 0 0 0)
 			(layer "F.SilkS")
-			(uuid "cb5d01b1-8d97-4aa7-9231-7c40aea18938")
+			(uuid "01771034-65da-451b-a765-b4d239b3535f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18814,7 +18814,7 @@
 		(property "Value" ""
 			(at 0 0 0)
 			(layer "F.Fab")
-			(uuid "a91de608-d23c-40b8-8c32-10ac3adb826f")
+			(uuid "1e79c599-4c34-4f78-bb0d-bfc44339debe")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18863,7 +18863,7 @@
 			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "4d4e1531-c34c-4761-b39b-e6d8e39ffb3a")
+			(uuid "c74fa63c-71ba-4066-ae07-6675776efeb2")
 		)
 	)
 	(footprint "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
@@ -19448,7 +19448,7 @@
 			(at 0 -3.8 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "9d79a946-c2cd-4110-b1c1-0c174b1b51d7")
+			(uuid "23c0c4a9-4f59-472e-94b4-b2415d0f08bb")
 			(effects
 				(font
 					(size 1 1)
@@ -19459,7 +19459,7 @@
 		(property "Value" "MountingHole_3.2mm_M3_DIN965"
 			(at 0 3.8 0)
 			(layer "F.Fab")
-			(uuid "b5c40bdd-1a1b-4328-8b29-b2140834b885")
+			(uuid "554e07ae-1bbe-4df4-96c0-945fb30fc0c6")
 			(effects
 				(font
 					(size 1 1)
@@ -19516,7 +19516,7 @@
 			)
 			(fill none)
 			(layer "Cmts.User")
-			(uuid "0b9a3771-a2e3-402e-8ca2-fc32b03767ed")
+			(uuid "3301f752-b4de-4b7a-bf1b-7597a437a724")
 		)
 		(fp_circle
 			(center 0 0)
@@ -19527,12 +19527,12 @@
 			)
 			(fill none)
 			(layer "F.CrtYd")
-			(uuid "264a7693-040c-4355-89a7-00dc6bba8fe8")
+			(uuid "27b6a713-c6d5-4a3c-8f41-f383c2ddd8b2")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
 			(layer "F.Fab")
-			(uuid "7a9a12ca-1ac2-47e1-94a6-9b013fda9b91")
+			(uuid "d2e3564d-d499-496b-a513-8574866420fd")
 			(effects
 				(font
 					(size 1 1)
@@ -19545,7 +19545,7 @@
 			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "4d4e1531-c34c-4761-b39b-e6d8e39ffb3a")
+			(uuid "45bef66a-e7d1-4df8-9fa4-fae20381cb19")
 		)
 	)
 	(footprint "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
@@ -23273,7 +23273,7 @@
 		(descr "Through hole straight pin header, 1x04, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x04 2.54mm single row")
 		(property "Reference" "J6"
-			(at 0 -2.33 360)
+			(at 0 -2.33 0)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "8cc4b75f-89aa-4f0c-b0f0-462e64c891a5")
@@ -23285,7 +23285,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 0 9.95 360)
+			(at 0 9.95 0)
 			(layer "F.Fab")
 			(uuid "e891af9a-4f28-43fc-a58e-958fb2169531")
 			(effects
@@ -37005,7 +37005,7 @@
 		(descr "Through hole straight pin header, 1x04, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x04 2.54mm single row")
 		(property "Reference" "J5"
-			(at 0 -2.33 360)
+			(at 0 -2.33 0)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "f77c8d8d-5935-411f-9e3c-5dc896c9de54")
@@ -37017,7 +37017,7 @@
 			)
 		)
 		(property "Value" "5V"
-			(at 0 9.95 360)
+			(at 0 9.95 0)
 			(layer "F.Fab")
 			(uuid "73840fc7-55c0-4a69-a1f6-4bf3ccffc3e6")
 			(effects
@@ -40441,7 +40441,7 @@
 		(property "Reference" ""
 			(at 0 0 0)
 			(layer "F.SilkS")
-			(uuid "cb5d01b1-8d97-4aa7-9231-7c40aea18938")
+			(uuid "29a8b4a8-bd8f-48f3-9526-3011e2b08a3d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -40452,7 +40452,7 @@
 		(property "Value" ""
 			(at 0 0 0)
 			(layer "F.Fab")
-			(uuid "a91de608-d23c-40b8-8c32-10ac3adb826f")
+			(uuid "c0a08134-9475-4fe4-8eb7-fdc5e5c871ca")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -40501,7 +40501,7 @@
 			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "4d4e1531-c34c-4761-b39b-e6d8e39ffb3a")
+			(uuid "c8e00264-4717-4765-a14a-312b07763ea7")
 		)
 	)
 	(footprint "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
@@ -47664,7 +47664,7 @@
 			(at 0 -3.8 0)
 			(layer "F.SilkS")
 			(hide yes)
-			(uuid "9d79a946-c2cd-4110-b1c1-0c174b1b51d7")
+			(uuid "bad2e21a-a499-41e8-bdac-05caf0eb990e")
 			(effects
 				(font
 					(size 1 1)
@@ -47675,7 +47675,7 @@
 		(property "Value" "MountingHole_3.2mm_M3_DIN965"
 			(at 0 3.8 0)
 			(layer "F.Fab")
-			(uuid "b5c40bdd-1a1b-4328-8b29-b2140834b885")
+			(uuid "de2da2f0-11fc-4212-a4c1-9f22b2065b1b")
 			(effects
 				(font
 					(size 1 1)
@@ -47732,7 +47732,7 @@
 			)
 			(fill none)
 			(layer "Cmts.User")
-			(uuid "0b9a3771-a2e3-402e-8ca2-fc32b03767ed")
+			(uuid "f1b112aa-568b-487d-bd8d-9499d5cc1181")
 		)
 		(fp_circle
 			(center 0 0)
@@ -47743,12 +47743,12 @@
 			)
 			(fill none)
 			(layer "F.CrtYd")
-			(uuid "264a7693-040c-4355-89a7-00dc6bba8fe8")
+			(uuid "0048f563-5de8-4c0e-877c-fc7b7d71e340")
 		)
 		(fp_text user "${REFERENCE}"
 			(at 0 0 0)
 			(layer "F.Fab")
-			(uuid "7a9a12ca-1ac2-47e1-94a6-9b013fda9b91")
+			(uuid "0b24a02b-da6a-4178-8aad-507abb1698f1")
 			(effects
 				(font
 					(size 1 1)
@@ -47761,7 +47761,7 @@
 			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "4d4e1531-c34c-4761-b39b-e6d8e39ffb3a")
+			(uuid "0de6e6aa-56f6-4c1e-b9bc-dbee355bb5c7")
 		)
 	)
 	(footprint "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
@@ -52329,7 +52329,7 @@
 		(property "Reference" ""
 			(at 0 0 0)
 			(layer "F.SilkS")
-			(uuid "cb5d01b1-8d97-4aa7-9231-7c40aea18938")
+			(uuid "016f27eb-e805-49b9-b85e-c30c0c5158f7")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -52340,7 +52340,7 @@
 		(property "Value" ""
 			(at 0 0 0)
 			(layer "F.Fab")
-			(uuid "a91de608-d23c-40b8-8c32-10ac3adb826f")
+			(uuid "1f604a0f-f03d-4141-b392-b680df0e2288")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -52389,7 +52389,7 @@
 			(size 3.2 3.2)
 			(drill 3.2)
 			(layers "*.Cu" "*.Mask")
-			(uuid "4d4e1531-c34c-4761-b39b-e6d8e39ffb3a")
+			(uuid "aead8bff-dd74-4149-a1d3-4547aba5f6ad")
 		)
 	)
 	(footprint "LED_SMD:LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm"
@@ -62425,6 +62425,19 @@
 		)
 		(layer "Edge.Cuts")
 		(uuid "f9e647e7-530a-4a3c-bf09-9115f3786167")
+	)
+	(gr_text "SEMO Combat Robotics 2024\nVinnie Marco\nMitch Cerroni"
+		(at 262.9154 52.1208 0)
+		(layer "B.SilkS")
+		(uuid "3806e9d9-1173-442a-abca-8c0ffa24867d")
+		(effects
+			(font
+				(size 5 5)
+				(thickness 1.25)
+				(bold yes)
+			)
+			(justify left bottom mirror)
+		)
 	)
 	(gr_text "Short JP1 to put border \nin serial with digits"
 		(at 265.938 93.2434 0)

@@ -1,0 +1,21 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+"D1, D3",0603,2,"RED, 0603", C2286
+"D2, D4",D_SMA,2,"1N1007, SMA",C727081
+"J1, J2",PinHeader_1x15_P2.54mm_Vertical,2,Conn_01x15_Socket,C124408
+J13,PinHeader_1x02_P2.54mm_Vertical,1,TIME SEL,
+J14,PinHeader_1x02_P2.54mm_Vertical,1,LED0,C124375
+J15,PinHeader_1x02_P2.54mm_Vertical,1,LED1,C124375
+J16,PinHeader_1x02_P2.54mm_Vertical,1,LED2,C124375
+J17,PinHeader_1x02_P2.54mm_Vertical,1,LED3,C124375
+J3,TerminalBlock_bornier-2_P5.08mm,1,5V INPUT,C5142622
+"J4, J7",TerminalBlock_bornier-2_P5.08mm,2,Bell Power,C5142622
+"J5, J6, J8, J9",TerminalBlock_bornier-3_P5.08mm,4,Screw_Terminal_01x03,C5142621
+"JP1, JP2",SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm,2,Jumper_2_Open,
+"K1, K2",Relay_DPDT_Omron_G5V-2,2,G5V-2_Split,C27269
+"Q1, Q2",SOT-323_SC-70,2,BSS214NW,C412741
+"R1, R3",0402,2,220,C25091
+"R2, R4, R5, R6, R7, R8",0402,6,100K,C25530
+SW1,SW_PUSH-12mm,1,RESET,C5377619
+SW2,SW_PUSH-12mm,1,START,C5377619
+SW3,SW_PUSH-12mm,1,PAUSE,C5377619
+SW4,SW_CK_JS202011AQN_DPDT_Angled,1,SW_SPDT,C223857
