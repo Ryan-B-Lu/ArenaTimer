@@ -35,6 +35,15 @@ bool lastTimeSelState = false;
 
 bool border_toggle = 1;
 
+// Debounce variables for each button
+unsigned long lastDebounceTimeStart = 0;
+unsigned long lastDebounceTimePause = 0;
+unsigned long lastDebounceTimeReset = 0;
+unsigned long lastDebounceTimeTimeSel = 0;
+
+// Debounce delay (in milliseconds)
+unsigned long debounceDelay = 50;
+
 const char* html = R"rawliteral(
 <!DOCTYPE html>
 <html lang="en">
@@ -125,26 +134,62 @@ void updateTimer() {
   updateLEDs();
 }
 
+// void checkButtons() {
+//   if (digitalRead(START_BTN) == LOW) {
+//     is_running = true;
+//   }
+//   if (digitalRead(PAUSE_BTN) == LOW) {
+//     is_running = false;
+//   }
+//   if (digitalRead(RESET_BTN) == LOW) {
+//     is_running = false;
+//     current_time = countdown_time;
+//     updateClient(); // Update the client immediately
+//     updateLEDs();
+//   }
+//   bool timeSelState = digitalRead(TIME_SEL_SW) == LOW;
+//   if (timeSelState != lastTimeSelState) {
+//     lastTimeSelState = timeSelState;
+//     countdown_time = timeSelState ? 180 : 120;
+//     current_time = countdown_time;
+//     updateClient(); // Update the client immediately
+//     updateLEDs();
+//   }
+// }
+
 void checkButtons() {
-  if (digitalRead(START_BTN) == LOW) {
+  unsigned long currentMillis = millis();
+
+  // Start button
+  if (digitalRead(START_BTN) == LOW && currentMillis - lastDebounceTimeStart > debounceDelay) {
     is_running = true;
+    lastDebounceTimeStart = currentMillis; // Update the last debounce time
   }
-  if (digitalRead(PAUSE_BTN) == LOW) {
+
+  // Pause button
+  if (digitalRead(PAUSE_BTN) == LOW && currentMillis - lastDebounceTimePause > debounceDelay) {
     is_running = false;
+    lastDebounceTimePause = currentMillis; // Update the last debounce time
   }
-  if (digitalRead(RESET_BTN) == LOW) {
+
+  // Reset button
+  if (digitalRead(RESET_BTN) == LOW && currentMillis - lastDebounceTimeReset > debounceDelay) {
     is_running = false;
     current_time = countdown_time;
     updateClient(); // Update the client immediately
     updateLEDs();
+    lastDebounceTimeReset = currentMillis; // Update the last debounce time
   }
+
+  // Time select switch (toggle between 2min/3min)
   bool timeSelState = digitalRead(TIME_SEL_SW) == LOW;
-  if (timeSelState != lastTimeSelState) {
+  if (timeSelState != lastTimeSelState && currentMillis - lastDebounceTimeTimeSel > debounceDelay) {
     lastTimeSelState = timeSelState;
     countdown_time = timeSelState ? 180 : 120;
     current_time = countdown_time;
     updateClient(); // Update the client immediately
     updateLEDs();
+    lastDebounceTimeTimeSel = currentMillis; // Update the last debounce time
   }
 }
 
