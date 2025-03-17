@@ -30,6 +30,8 @@ bool setupMode = false;
 #define LEFT_BORDER 0
 #define RIGHT_BOARDER 70
 
+#define ORANGE CRGB(255, 50, 0)
+
 CRGB digit_leds[DIGIT_LED_COUNT];
 CRGB border_leds[BORDER_LED_COUNT];
 
@@ -39,6 +41,7 @@ bool is_running = false;
 bool lastTimeSelState = false;
 bool blueReady = false;
 bool redReady = false;
+bool preCountdownRunning = false;
 
 bool border_toggle = 1;
 
@@ -49,6 +52,8 @@ unsigned long lastDebounceTimeReset = 0;
 unsigned long lastDebounceTimeTimeSel = 0;
 unsigned long lastDebounceTimeBlue = 0;
 unsigned long lastDebounceTimeRed = 0;
+
+int countdown = 3; //number of seconds until match start
 
 // Debounce delay (in milliseconds)
 unsigned long debounceDelay = 50;
@@ -136,40 +141,45 @@ void updateClient() {
 }
 
 void updateTimer() {
+  if (preCountdownRunning) {
+    static unsigned long lastCountdownTime = 0;
+    unsigned long currentMillis = millis();
+
+    // Countdown every 1 second
+    if (currentMillis - lastCountdownTime >= 1000) {
+      lastCountdownTime = currentMillis;
+
+      // Update the display for the current countdown number
+      setDigit(0, 0, false);
+      setDigit(0, 49, false);
+      setColon();
+      setDigit(countdown, 101, true);
+      setDigit(0, 150, true);
+
+      FastLED.show();  // Ensure LEDs update properly this time!
+
+      countdown--;
+
+      // When countdown hits 0, start the main timer
+      if (countdown < 0) {
+        preCountdownRunning = false;
+        countdown = 3;
+        current_time = countdown_time;
+        is_running = true;
+
+        updateClient();  // Reset to 2:00 (or 3:00)
+        updateLEDs();
+      }
+    }
+  }
+
+  // Main timer counting down
   if (is_running && current_time > 0) {
     current_time--;
+    
+    updateClient();  // Reset to 2:00 (or 3:00)
+    updateLEDs();
   }
-  updateClient();
-  updateLEDs();
-}
-
-void startPreCountdown() {
-  // Show 3-second countdown on digits
-  is_running = false;  // Ensure main timer is stopped
-
-  for (int i = 3; i > 0; i--) {
-    setDigit(0, 0, false);
-    setDigit(0, 49, false);
-    setColon();
-    setDigit(i, 101, true);
-    setDigit(0, 150, true);
-
-    // Change border color for countdown
-    for (int j = 0; j < BORDER_LED_COUNT; j++) {
-      border_leds[j] = CRGB::Orange;
-    }
-    FastLED.show();
-    delay(1000);
-  }
-
-  // Restore original border color
-  setBorder();
-
-  // Start the main countdown
-  is_running = true;
-  current_time = countdown_time;  // Reset to selected time
-  updateClient();
-  updateLEDs();
 }
 
 void checkButtons() {
@@ -177,7 +187,19 @@ void checkButtons() {
 
   // Start button
   if (digitalRead(START_BTN) == LOW && currentMillis - lastDebounceTimeStart > debounceDelay) {
-    startPreCountdown();  // Initiate the pre-countdown
+    preCountdownRunning = true; // Initiate the pre-countdown
+    // Use ternary operation to set border LEDs to orange or black
+      for (int i = 0; i < BORDER_LED_COUNT; i++) {
+        border_leds[i] = ORANGE;
+      }
+
+      setDigit(0, 0, false);
+      setDigit(0, 49, false);
+      setColon();
+      setDigit(countdown, 101, true);
+      setDigit(0, 150, true);
+
+      FastLED.show();
     lastDebounceTimeStart = currentMillis;  // Update debounce time
   }
 
@@ -345,7 +367,7 @@ void setup() {
       [](void*) {
           TickType_t lastWakeTime = xTaskGetTickCount();
           while (true) {
-              if (is_running) {
+              if (is_running || preCountdownRunning) {
                   updateTimer();
               }
               vTaskDelayUntil(&lastWakeTime, pdMS_TO_TICKS(1000));
@@ -372,16 +394,40 @@ void setup() {
       1,
       nullptr
   );
+
+    xTaskCreate(
+      [](void*) {
+          TickType_t lastWakeTime = xTaskGetTickCount();
+          while (true) {
+              if (preCountdownRunning) {
+                  static bool flashBorder = true;
+
+                  // Toggle the border flash
+                  flashBorder = !flashBorder;
+                  for (int i = 0; i < BORDER_LED_COUNT; i++) {
+                      border_leds[i] = flashBorder ? ORANGE : CRGB::Black;
+                  }
+                  FastLED.show();
+              }
+              vTaskDelayUntil(&lastWakeTime, pdMS_TO_TICKS(500)); // 500ms toggle
+          }
+      },
+      "BorderFlashTask",
+      2048,
+      nullptr,
+      1,
+      nullptr
+  );
 }
 
 
 void loop() {
-    if (setupMode) {
-        server.handleClient();
-    }
+  if (setupMode) {
+      server.handleClient();
+  }
 
-    server.handleClient();
-    webSocket.loop();
+  server.handleClient();
+  webSocket.loop();
 }
 
 void setDigit(int digit, int offset, bool inverted) {
