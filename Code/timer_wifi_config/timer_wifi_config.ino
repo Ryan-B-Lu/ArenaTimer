@@ -19,12 +19,17 @@ bool setupMode = false;
 #define START_BTN 12 // OK, boot fails if pulled high, strapping pin
 #define TIME_SEL_SW 13
 #define LED_BUILTIN 2
+#define BLUE_BTN 16
+#define RED_BTN 4
 
 // LED pin assignments and setup
 #define DIGIT_PIN   5
 #define BORDER_PIN  17
 #define DIGIT_LED_COUNT 202
 #define BORDER_LED_COUNT 140
+#define LEFT_BORDER 0
+#define RIGHT_BOARDER 70
+
 CRGB digit_leds[DIGIT_LED_COUNT];
 CRGB border_leds[BORDER_LED_COUNT];
 
@@ -32,6 +37,8 @@ int countdown_time = 120; // Default to 2 minutes (120 seconds)
 int current_time = countdown_time;
 bool is_running = false;
 bool lastTimeSelState = false;
+bool blueReady = false;
+bool redReady = false;
 
 bool border_toggle = 1;
 
@@ -40,6 +47,8 @@ unsigned long lastDebounceTimeStart = 0;
 unsigned long lastDebounceTimePause = 0;
 unsigned long lastDebounceTimeReset = 0;
 unsigned long lastDebounceTimeTimeSel = 0;
+unsigned long lastDebounceTimeBlue = 0;
+unsigned long lastDebounceTimeRed = 0;
 
 // Debounce delay (in milliseconds)
 unsigned long debounceDelay = 50;
@@ -134,62 +143,96 @@ void updateTimer() {
   updateLEDs();
 }
 
-// void checkButtons() {
-//   if (digitalRead(START_BTN) == LOW) {
-//     is_running = true;
-//   }
-//   if (digitalRead(PAUSE_BTN) == LOW) {
-//     is_running = false;
-//   }
-//   if (digitalRead(RESET_BTN) == LOW) {
-//     is_running = false;
-//     current_time = countdown_time;
-//     updateClient(); // Update the client immediately
-//     updateLEDs();
-//   }
-//   bool timeSelState = digitalRead(TIME_SEL_SW) == LOW;
-//   if (timeSelState != lastTimeSelState) {
-//     lastTimeSelState = timeSelState;
-//     countdown_time = timeSelState ? 180 : 120;
-//     current_time = countdown_time;
-//     updateClient(); // Update the client immediately
-//     updateLEDs();
-//   }
-// }
+void startPreCountdown() {
+  // Show 3-second countdown on digits
+  is_running = false;  // Ensure main timer is stopped
+
+  for (int i = 3; i > 0; i--) {
+    setDigit(0, 0, false);
+    setDigit(0, 49, false);
+    setColon();
+    setDigit(i, 101, true);
+    setDigit(0, 150, true);
+
+    // Change border color for countdown
+    for (int j = 0; j < BORDER_LED_COUNT; j++) {
+      border_leds[j] = CRGB::Orange;
+    }
+    FastLED.show();
+    delay(1000);
+  }
+
+  // Restore original border color
+  setBorder();
+
+  // Start the main countdown
+  is_running = true;
+  current_time = countdown_time;  // Reset to selected time
+  updateClient();
+  updateLEDs();
+}
 
 void checkButtons() {
   unsigned long currentMillis = millis();
 
   // Start button
   if (digitalRead(START_BTN) == LOW && currentMillis - lastDebounceTimeStart > debounceDelay) {
-    is_running = true;
-    lastDebounceTimeStart = currentMillis; // Update the last debounce time
+    startPreCountdown();  // Initiate the pre-countdown
+    lastDebounceTimeStart = currentMillis;  // Update debounce time
   }
 
   // Pause button
   if (digitalRead(PAUSE_BTN) == LOW && currentMillis - lastDebounceTimePause > debounceDelay) {
     is_running = false;
-    lastDebounceTimePause = currentMillis; // Update the last debounce time
+    lastDebounceTimePause = currentMillis;
+  }
+
+  // Blue Ready button
+  if (digitalRead(BLUE_BTN) == LOW && currentMillis - lastDebounceTimeBlue > debounceDelay) {
+    blueReady = true;
+
+    // Set border LEDs
+    for (int i = 0; i < BORDER_LED_COUNT/2; i++) {
+      border_leds[i] = CRGB::Blue; // First half blue
+    }
+    FastLED.show(); // Show the initialized border LED colors
+
+    lastDebounceTimePause = currentMillis;
+  }
+
+   // Blue Ready button
+  if (digitalRead(RED_BTN) == LOW && currentMillis - lastDebounceTimeRed > debounceDelay) {
+    redReady = true;
+
+    // Set border LEDs
+    for (int i = BORDER_LED_COUNT/2; i < BORDER_LED_COUNT ; i++) {
+      border_leds[i] = CRGB::Red; // Second half red
+    }
+    FastLED.show(); // Show the initialized border LED colors
+    
+    lastDebounceTimePause = currentMillis;
   }
 
   // Reset button
   if (digitalRead(RESET_BTN) == LOW && currentMillis - lastDebounceTimeReset > debounceDelay) {
     is_running = false;
     current_time = countdown_time;
-    updateClient(); // Update the client immediately
+    blueReady = false;
+    redReady = false;
+    updateClient();
     updateLEDs();
-    lastDebounceTimeReset = currentMillis; // Update the last debounce time
+    lastDebounceTimeReset = currentMillis;
   }
 
-  // Time select switch (toggle between 2min/3min)
+  // Time select switch
   bool timeSelState = digitalRead(TIME_SEL_SW) == LOW;
   if (timeSelState != lastTimeSelState && currentMillis - lastDebounceTimeTimeSel > debounceDelay) {
     lastTimeSelState = timeSelState;
     countdown_time = timeSelState ? 180 : 120;
     current_time = countdown_time;
-    updateClient(); // Update the client immediately
+    updateClient();
     updateLEDs();
-    lastDebounceTimeTimeSel = currentMillis; // Update the last debounce time
+    lastDebounceTimeTimeSel = currentMillis;
   }
 }
 
@@ -293,6 +336,8 @@ void setup() {
   pinMode(PAUSE_BTN, INPUT_PULLUP);
   pinMode(START_BTN, INPUT_PULLUP);
   pinMode(TIME_SEL_SW, INPUT_PULLUP);
+  pinMode(BLUE_BTN, INPUT_PULLUP);
+  pinMode(RED_BTN, INPUT_PULLUP);
   lastTimeSelState = digitalRead(TIME_SEL_SW) == LOW;
   
   // Start the timer update task
@@ -398,14 +443,9 @@ void updateLEDs() {
 
 void setBorder()
 {
-   // Set border LEDs
-  int halfBorderCount = BORDER_LED_COUNT / 2;
-  for (int i = 0; i < halfBorderCount; i++) {
-    border_leds[i] = CRGB::Blue; // First half blue
+  for (int i = 0; i < BORDER_LED_COUNT; i++) {
+    border_leds[i].setRGB(127,127,127); //white
   }
-  for (int i = halfBorderCount; i < BORDER_LED_COUNT; i++) {
-    border_leds[i] = CRGB::Red;  // Second half red
-  }
-
+ 
   FastLED.show(); // Show the initialized border LED colors
 }
