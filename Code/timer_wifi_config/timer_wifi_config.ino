@@ -54,6 +54,8 @@ unsigned long lastDebounceTimeTimeSel = 0;
 unsigned long lastDebounceTimeBlue = 0;
 unsigned long lastDebounceTimeRed = 0;
 
+unsigned long lastCountdownTime = 0;
+
 int countdown = 3; //number of seconds until match start
 
 // Debounce delay (in milliseconds)
@@ -82,15 +84,19 @@ void handleRoot_AP() {
 void handleControl() {
   String cmd = server.arg("cmd");
   if (cmd == "start") {
-    is_running = true;
-  } else if (cmd == "pause") {
+    starPreCountdown();
+  } 
+  else if (cmd == "pause") {
     is_running = false;
-  } else if (cmd == "reset") {
+  } 
+  else if (cmd == "reset") {
     is_running = false;
+    blueReady = redReady = false;
     current_time = countdown_time;
     updateClient(); // Update the client immediately
     updateLEDs();
-  } else if (cmd == "switch") {
+  } 
+  else if (cmd == "switch") {
     countdown_time = (countdown_time == 120) ? 180 : 120;
     current_time = countdown_time;
     updateClient(); // Update the client immediately
@@ -108,7 +114,6 @@ void updateClient() {
 }
 
 void updateTimer() {
-  static unsigned long lastCountdownTime = 0;
   unsigned long currentMillis = millis();
   
   if (preCountdownRunning) {
@@ -127,40 +132,37 @@ void updateTimer() {
 
       FastLED.show();
 
-      // Advance the index
       scrollIndex--;
-
-      // If full fill is reached, reset
       if (scrollIndex < 0) {
         scrollIndex = BORDER_LED_COUNT - 1;
-       
+        countdown--;
+
+        if (countdown <= 0) {
+          // countdown is done, start timer
+          countdown = 3;
+          preCountdownRunning = false;
+          scrollIndex = BORDER_LED_COUNT - 1;
+          lastCountdownTime = 0;
+          lastScrollTime = 0;
+          is_running = true;
+          lastCountdownTime = millis();
+
+          if (!is_running && current_time == countdown_time) {
+            current_time = countdown_time + 1;
+          }
+
+          updateClient();
+          updateLEDs();
+          return; // stop here — don't draw the digit again
+        }
+
+        // only draw digit if countdown > 0
         setDigit(0, 0, false);
         setDigit(0, 49, false);
         setColon();
         setDigit(countdown, 101, true);
         setDigit(0, 150, true);
-
-        FastLED.show();  // Ensure LEDs update properly this time!
-        
-
-        countdown--;
-      }
-      // When countdown hits 0, start the main timer
-      if (countdown < 0) {
-        countdown = 3;
-        preCountdownRunning = false;
-        scrollIndex = BORDER_LED_COUNT - 1;
-        lastCountdownTime = 0;
-        lastScrollTime = 0;
-        is_running = true;
-
-        // Only reset the timer if it's not already counting down
-        if (!is_running && current_time == countdown_time) {
-          current_time = countdown_time + 1;//add addition second in case one was lost
-        }
-    
-        updateClient();  // Reset to 2:00 (or 3:00)
-        updateLEDs();
+        FastLED.show();
       }
     }
   }
@@ -184,21 +186,7 @@ void checkButtons() {
   // Start button
   if (digitalRead(START_BTN) == LOW && currentMillis - lastDebounceTimeStart > debounceDelay) {
 
-    if(blueReady && redReady) {
-      preCountdownRunning = true; // Initiate the pre-countdown
-      // Use ternary operation to set border LEDs to orange or black
-      for (int i = 0; i < BORDER_LED_COUNT; i++) {
-        border_leds[i] = ORANGE;
-      }
-
-      setDigit(0, 0, false);
-      setDigit(0, 49, false);
-      setColon();
-      setDigit(countdown, 101, true);
-      setDigit(0, 150, true);
-
-      FastLED.show();
-    }
+    starPreCountdown();
     lastDebounceTimeStart = currentMillis;  // Update debounce time
   }
 
@@ -255,6 +243,26 @@ void checkButtons() {
     updateLEDs();
     lastDebounceTimeTimeSel = currentMillis;
   }
+}
+
+void starPreCountdown() {
+  if(!is_running && blueReady && redReady) {
+      countdown = 3;
+      scrollIndex = BORDER_LED_COUNT - 1;
+      preCountdownRunning = true; // Initiate the pre-countdown
+      // Use ternary operation to set border LEDs to orange or black
+      for (int i = 0; i < BORDER_LED_COUNT; i++) {
+        border_leds[i] = ORANGE;
+      }
+
+      setDigit(0, 0, false);
+      setDigit(0, 49, false);
+      setColon();
+      setDigit(countdown, 101, true);
+      setDigit(0, 150, true);
+
+      FastLED.show();
+    }
 }
 
 void onWebSocketEvent(uint8_t num, WStype_t type, uint8_t * payload, size_t length) {
@@ -337,7 +345,7 @@ void setup() {
   // Initialize LED strips
   FastLED.addLeds<NEOPIXEL, DIGIT_PIN>(digit_leds, DIGIT_LED_COUNT);
   FastLED.addLeds<NEOPIXEL, BORDER_PIN>(border_leds, BORDER_LED_COUNT);
-  FastLED.setBrightness(255); // Set BRIGHTNESS to max
+  FastLED.setBrightness(20); // Set BRIGHTNESS to max
  
   updateLEDs();//update the text LEDs
   setBorder();//start the border on
