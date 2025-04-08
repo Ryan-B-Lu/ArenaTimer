@@ -5520,7 +5520,7 @@
 		(path "/d699957a-1d95-4b49-98d8-14db9aad5da8")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start 9 19.19)
 			(end 9 -1.4)
@@ -51565,7 +51565,7 @@
 		(path "/fb11d4ee-39cb-4ed9-9b8c-8d0997a3116a")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start 1.11 1.33)
 			(end 0 1.33)
@@ -52158,7 +52158,7 @@
 		(path "/b28d2740-b818-48bb-a2e7-a0c4034c9c20")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -1.27 1.27)
 			(end -1.27 0)
@@ -52997,7 +52997,7 @@
 		(path "/7aa6d66f-e991-47ae-8671-43342c49dd29")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -2.61 -1.61)
 			(end -1.39 -1.61)
@@ -53874,7 +53874,7 @@
 		(path "/90b2779e-f8bc-4d9f-9494-aa157e82d9c2")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start 0.9 -4.6)
 			(end 0.9 -1.9)
@@ -54280,7 +54280,7 @@
 		(path "/6a751967-4f72-4b0c-914d-ab1343cad092")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -1.27 1.27)
 			(end -1.27 0)
@@ -54843,7 +54843,7 @@
 		(path "/df8b91ab-ff8b-47a7-ad6a-9ff87dbe41fc")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -2.61 -1.61)
 			(end -1.39 -1.61)
@@ -56044,7 +56044,7 @@
 		(path "/c7550114-4eb4-453a-85b8-de07347f71b4")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start 1.11 1.33)
 			(end 0 1.33)
@@ -56793,7 +56793,7 @@
 		(path "/76aa4771-ab72-4fc0-b4e6-c36702414452")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start 1.33 -36.89)
 			(end -1.33 -36.89)
@@ -57223,7 +57223,7 @@
 		(path "/88a8cece-ed51-4e7f-ac32-4e2f3b573d1f")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start 1.11 1.33)
 			(end 0 1.33)
@@ -57958,7 +57958,7 @@
 		(path "/2fd45a24-f133-4dfe-97ab-aaef1970ab41")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -1.27 1.27)
 			(end -1.27 0)
@@ -58797,7 +58797,7 @@
 		(path "/2d080d9b-6beb-46f1-8b48-7bc686f2c15a")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -2.54 -3.81)
 			(end -2.54 3.81)
@@ -59085,7 +59085,7 @@
 		(path "/0f0d925b-6cab-4174-b7e0-6aa3899c40e5")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start -2.61 -1.61)
 			(end -1.39 -1.61)
@@ -59663,7 +59663,7 @@
 		(path "/54965ea6-647c-409e-b4b5-d939315fe352")
 		(sheetname "Root")
 		(sheetfile "ArenaTimer.kicad_sch")
-		(attr through_hole)
+		(attr through_hole exclude_from_bom dnp)
 		(fp_line
 			(start 1.33 -36.89)
 			(end -1.33 -36.89)

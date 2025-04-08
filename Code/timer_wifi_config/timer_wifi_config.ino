@@ -3,6 +3,7 @@
 #include <WebSocketsServer.h>
 #include <FastLED.h>
 #include <Preferences.h>  // Use NVS for WiFi storage
+#include "browser.h"
 
 Preferences preferences;
 WebServer server(80);
@@ -29,11 +30,11 @@ bool setupMode = false;
 #define BORDER_LED_COUNT 140
 #define LEFT_BORDER 0
 #define RIGHT_BOARDER 70
-
 #define ORANGE CRGB(255, 50, 0)
 
 CRGB digit_leds[DIGIT_LED_COUNT];
 CRGB border_leds[BORDER_LED_COUNT];
+
 
 int countdown_time = 120; // Default to 2 minutes (120 seconds)
 int current_time = countdown_time;
@@ -56,45 +57,11 @@ unsigned long lastDebounceTimeRed = 0;
 int countdown = 3; //number of seconds until match start
 
 // Debounce delay (in milliseconds)
-unsigned long debounceDelay = 50;
+unsigned long debounceDelay = 200;
 
-const char* html = R"rawliteral(
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESP32 Countdown Timer</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: black; color: white; }
-        #countdown { font-size: 48px; color: white; }
-        button { font-size: 24px; margin: 10px; }
-    </style>
-</head>
-<body>
-    <h1>ESP32 Countdown Timer</h1>
-    <p id="countdown">02:00</p>
-    <button onclick="controlTimer('start')">Start</button>
-    <button onclick="controlTimer('pause')">Pause</button>
-    <button onclick="controlTimer('reset')">Reset</button>
-    <button onclick="toggleTime()">Switch 2min/3min</button>
-    <script>
-        let webSocket = new WebSocket(`ws://${window.location.hostname}:81/`);
-        webSocket.onmessage = function(event) {
-            document.getElementById('countdown').textContent = event.data;
-        };
-
-        function controlTimer(action) {
-            fetch(`/control?cmd=${action}`);
-        }
-
-        function toggleTime() {
-            fetch('/control?cmd=switch');
-        }
-    </script>
-</body>
-</html>
-)rawliteral";
+int scrollIndex = 0;
+const float scrollInterval = 1000.0 / BORDER_LED_COUNT;  // ~7.14ms per LED
+unsigned long lastScrollTime = 0;
 
 void startAPMode() {
     Serial.println("Starting Access Point mode...");
@@ -141,32 +108,57 @@ void updateClient() {
 }
 
 void updateTimer() {
+  static unsigned long lastCountdownTime = 0;
+  unsigned long currentMillis = millis();
+  
   if (preCountdownRunning) {
-    static unsigned long lastCountdownTime = 0;
-    unsigned long currentMillis = millis();
+    if (currentMillis - lastScrollTime >= scrollInterval) {
+      lastScrollTime = currentMillis;
 
-    // Countdown every 1 second
-    if (currentMillis - lastCountdownTime >= 1000) {
-      lastCountdownTime = currentMillis;
+      // Fill from 0 to scrollIndex with ORANGE
+      for (int i = 0; i < BORDER_LED_COUNT; i++) {
+        if (i >= scrollIndex) {
+          border_leds[i] = ORANGE;
+        } 
+        else {
+          border_leds[i] = CRGB::Black;
+        }
+      }
 
-      // Update the display for the current countdown number
-      setDigit(0, 0, false);
-      setDigit(0, 49, false);
-      setColon();
-      setDigit(countdown, 101, true);
-      setDigit(0, 150, true);
+      FastLED.show();
 
-      FastLED.show();  // Ensure LEDs update properly this time!
+      // Advance the index
+      scrollIndex--;
 
-      countdown--;
+      // If full fill is reached, reset
+      if (scrollIndex < 0) {
+        scrollIndex = BORDER_LED_COUNT - 1;
+       
+        setDigit(0, 0, false);
+        setDigit(0, 49, false);
+        setColon();
+        setDigit(countdown, 101, true);
+        setDigit(0, 150, true);
 
+        FastLED.show();  // Ensure LEDs update properly this time!
+        
+
+        countdown--;
+      }
       // When countdown hits 0, start the main timer
       if (countdown < 0) {
-        preCountdownRunning = false;
         countdown = 3;
-        current_time = countdown_time;
+        preCountdownRunning = false;
+        scrollIndex = BORDER_LED_COUNT - 1;
+        lastCountdownTime = 0;
+        lastScrollTime = 0;
         is_running = true;
 
+        // Only reset the timer if it's not already counting down
+        if (!is_running && current_time == countdown_time) {
+          current_time = countdown_time + 1;//add addition second in case one was lost
+        }
+    
         updateClient();  // Reset to 2:00 (or 3:00)
         updateLEDs();
       }
@@ -175,10 +167,14 @@ void updateTimer() {
 
   // Main timer counting down
   if (is_running && current_time > 0) {
-    current_time--;
-    
-    updateClient();  // Reset to 2:00 (or 3:00)
-    updateLEDs();
+    // Countdown every 1 second
+    if (currentMillis - lastCountdownTime >= 1000) {
+      lastCountdownTime = currentMillis;
+      current_time--;
+      
+      updateClient();  // Reset to 2:00 (or 3:00)
+      updateLEDs();
+    }
   }
 }
 
@@ -187,8 +183,10 @@ void checkButtons() {
 
   // Start button
   if (digitalRead(START_BTN) == LOW && currentMillis - lastDebounceTimeStart > debounceDelay) {
-    preCountdownRunning = true; // Initiate the pre-countdown
-    // Use ternary operation to set border LEDs to orange or black
+
+    if(blueReady && redReady) {
+      preCountdownRunning = true; // Initiate the pre-countdown
+      // Use ternary operation to set border LEDs to orange or black
       for (int i = 0; i < BORDER_LED_COUNT; i++) {
         border_leds[i] = ORANGE;
       }
@@ -200,6 +198,7 @@ void checkButtons() {
       setDigit(0, 150, true);
 
       FastLED.show();
+    }
     lastDebounceTimeStart = currentMillis;  // Update debounce time
   }
 
@@ -370,7 +369,7 @@ void setup() {
               if (is_running || preCountdownRunning) {
                   updateTimer();
               }
-              vTaskDelayUntil(&lastWakeTime, pdMS_TO_TICKS(1000));
+              vTaskDelayUntil(&lastWakeTime, pdMS_TO_TICKS(1));
           }
       },
       "TimerTask",
@@ -395,37 +394,10 @@ void setup() {
       nullptr
   );
 
-    xTaskCreate(
-      [](void*) {
-          TickType_t lastWakeTime = xTaskGetTickCount();
-          while (true) {
-              if (preCountdownRunning) {
-                  static bool flashBorder = true;
-
-                  // Toggle the border flash
-                  flashBorder = !flashBorder;
-                  for (int i = 0; i < BORDER_LED_COUNT; i++) {
-                      border_leds[i] = flashBorder ? ORANGE : CRGB::Black;
-                  }
-                  FastLED.show();
-              }
-              vTaskDelayUntil(&lastWakeTime, pdMS_TO_TICKS(500)); // 500ms toggle
-          }
-      },
-      "BorderFlashTask",
-      2048,
-      nullptr,
-      1,
-      nullptr
-  );
 }
 
 
 void loop() {
-  if (setupMode) {
-      server.handleClient();
-  }
-
   server.handleClient();
   webSocket.loop();
 }
