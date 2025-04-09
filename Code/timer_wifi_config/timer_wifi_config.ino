@@ -93,6 +93,7 @@ void handleControl() {
     is_running = false;
     blueReady = redReady = false;
     current_time = countdown_time;
+    setBorder();
     updateClient(); // Update the client immediately
     updateLEDs();
   } 
@@ -150,6 +151,18 @@ void updateTimer() {
           if (!is_running && current_time == countdown_time) {
             current_time = countdown_time + 1;
           }
+
+          // Set border LEDs
+          for (int i = 0; i < BORDER_LED_COUNT/2; i++) {
+            border_leds[i] = CRGB::Blue; // First half blue
+          }
+
+          // Set border LEDs
+          for (int i = BORDER_LED_COUNT/2; i < BORDER_LED_COUNT ; i++) {
+            border_leds[i] = CRGB::Red; // Second half red
+          }
+
+          FastLED.show(); // Show the initialized border LED colors
 
           updateClient();
           updateLEDs();
@@ -228,6 +241,7 @@ void checkButtons() {
     current_time = countdown_time;
     blueReady = false;
     redReady = false;
+    setBorder();
     updateClient();
     updateLEDs();
     lastDebounceTimeReset = currentMillis;
@@ -345,7 +359,7 @@ void setup() {
   // Initialize LED strips
   FastLED.addLeds<NEOPIXEL, DIGIT_PIN>(digit_leds, DIGIT_LED_COUNT);
   FastLED.addLeds<NEOPIXEL, BORDER_PIN>(border_leds, BORDER_LED_COUNT);
-  FastLED.setBrightness(20); // Set BRIGHTNESS to max
+  FastLED.setBrightness(255); // Set BRIGHTNESS to max
  
   updateLEDs();//update the text LEDs
   setBorder();//start the border on
@@ -381,7 +395,7 @@ void setup() {
           }
       },
       "TimerTask",
-      2048,
+      4096,
       nullptr,
       1,
       nullptr
