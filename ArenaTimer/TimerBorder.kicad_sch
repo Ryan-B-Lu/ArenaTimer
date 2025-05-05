@@ -1,10 +1,22 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "542af8ea-13fc-4fda-872b-579879d79110")
 	(paper "B")
 	(lib_symbols)
+	(text "Front Side"
+		(exclude_from_sim no)
+		(at 218.948 120.65 0)
+		(effects
+			(font
+				(size 7.62 7.62)
+				(thickness 1.524)
+				(bold yes)
+			)
+		)
+		(uuid "4fd6b7b8-bfd8-4ff1-93dd-fdd848378ea0")
+	)
 	(wire
 		(pts
 			(xy 160.02 140.97) (xy 186.69 140.97)
@@ -35,22 +47,9 @@
 		)
 		(uuid "8d0fa95e-3837-48d1-b8fe-6f7d90add1de")
 	)
-	(text "Front Side"
-		(exclude_from_sim no)
-		(at 218.948 120.65 0)
-		(effects
-			(font
-				(size 7.62 7.62)
-				(thickness 1.524)
-				(bold yes)
-			)
-		)
-		(uuid "4fd6b7b8-bfd8-4ff1-93dd-fdd848378ea0")
-	)
 	(hierarchical_label "DIN"
 		(shape input)
 		(at 160.02 140.97 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -62,7 +61,6 @@
 	(hierarchical_label "DOUT"
 		(shape input)
 		(at 267.97 140.97 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -74,6 +72,10 @@
 	(sheet
 		(at 186.69 134.62)
 		(size 22.86 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -103,23 +105,23 @@
 		)
 		(pin "DIN" input
 			(at 186.69 140.97 180)
+			(uuid "930e8f97-ba90-4c2e-93f1-269338b597d8")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "930e8f97-ba90-4c2e-93f1-269338b597d8")
 		)
 		(pin "DOUT" output
 			(at 209.55 140.97 0)
+			(uuid "e34dc81a-2929-4524-ac04-72a02c7781fb")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "e34dc81a-2929-4524-ac04-72a02c7781fb")
 		)
 		(instances
 			(project "ArenaTimer"
@@ -132,6 +134,10 @@
 	(sheet
 		(at 224.79 134.62)
 		(size 22.86 12.7)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -161,23 +167,23 @@
 		)
 		(pin "DIN" input
 			(at 224.79 140.97 180)
+			(uuid "ada88ae3-13a8-4de5-885b-856c42d94204")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "ada88ae3-13a8-4de5-885b-856c42d94204")
 		)
 		(pin "DOUT" output
 			(at 247.65 140.97 0)
+			(uuid "4d7522c6-cf9f-4f7c-98ba-38caa9760d03")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "4d7522c6-cf9f-4f7c-98ba-38caa9760d03")
 		)
 		(instances
 			(project "ArenaTimer"

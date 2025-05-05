@@ -119,6 +119,59 @@ void handleControl() {
     setBorder();
   }
 
+  else if (cmd == "brightness") {
+    int value = server.arg("value").toInt();
+    value = constrain(value, 0, 255);
+
+    // Step 1: Clear the display
+    fill_solid(border_physical, PHYSICAL_STRIP_LEN, CRGB::Black);
+    fill_solid(digit_physical, PHYSICAL_STRIP_LEN, CRGB::Black);
+    FastLED.show();
+    delay(50);  // Give time for the clear to register
+
+    // Step 2: Change brightness
+    FastLED.setBrightness(value);
+    delay(50);  // Optional: allow time for brightness to take effect
+
+    // Step 3: Redraw current time
+    int minutes = current_time / 60;
+    int seconds = current_time % 60;
+
+    // Convert minutes and seconds to individual digits
+    int digit1 = minutes / 10;
+    int digit2 = minutes % 10;
+    int digit3 = seconds / 10;
+    int digit4 = seconds % 10;
+
+    setDigit(digit1, 0, false);     // First digit
+    setDigit(digit2, 49, false);    // Second digit
+    setColon();                     // Colon dots
+    setDigit(digit4, 101, true);    // Third digit (upside down and backwards)
+    setDigit(digit3, 150, true);    // Fourth digit (upside down and backwards)
+
+    if (!readyRequired) {
+        for (int i = 0; i < BORDER_LED_COUNT / 2; i++) {
+            setBorderLEDs(i, CRGB::Blue);
+        }
+        for (int i = BORDER_LED_COUNT / 2; i < BORDER_LED_COUNT; i++) {
+            setBorderLEDs(i, CRGB::Red);
+        }
+    } else {
+        for (int i = 0; i < BORDER_LED_COUNT; i++) {
+            setBorderLEDs(i, CRGB(127, 127, 127)); // White
+        }
+    }
+
+    // Show updated display
+    FastLED.show();
+
+    // Save new brightness to preferences
+    preferences.begin("settings", false);
+    preferences.putUChar("brightness", value);
+    preferences.end();
+  }
+
+
   server.send(200, "text/plain", "OK");
 }
 
@@ -390,7 +443,7 @@ void setup() {
   // Initialize LED strips
   FastLED.addLeds<NEOPIXEL, DIGIT_PIN>(digit_physical, PHYSICAL_STRIP_LEN);
   FastLED.addLeds<NEOPIXEL, BORDER_PIN>(border_physical, PHYSICAL_STRIP_LEN);
-  FastLED.setBrightness(255);
+  FastLED.setBrightness(5);
  
   countdown_time = timeSelState ? 180 : 120;
   current_time = countdown_time;

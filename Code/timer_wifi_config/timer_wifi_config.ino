@@ -15,9 +15,9 @@ const char* apPassword = "12345678";
 bool setupMode = false;
 
 // Pin assignments
-#define RESET_BTN 27
+#define RESET_BTN 12
 #define PAUSE_BTN 14
-#define START_BTN 12 // OK, boot fails if pulled high, strapping pin
+#define START_BTN 
 #define TIME_SEL_SW 13
 #define LED_BUILTIN 2
 #define BLUE_BTN 16
