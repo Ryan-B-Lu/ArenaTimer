@@ -207,6 +207,10 @@ void updateTimer() {
       updateLEDs();
     }
   }
+
+  else {
+    is_running = false;
+  }
 }
 
 void checkButtons() {
