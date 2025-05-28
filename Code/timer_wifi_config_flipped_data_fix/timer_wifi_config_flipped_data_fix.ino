@@ -1,6 +1,6 @@
 #include <WiFi.h>
 #include <WebServer.h>
-#include <WebSocketsServer.h>
+#include "WebSocketsServer.h"
 #include <FastLED.h>
 #include <Preferences.h>  // Use NVS for WiFi storage
 #include "browser.h"
