@@ -1,0 +1,2 @@
+All frame parts - 4-5 walls, 10-20% infill
+Lenses 5mm solid bottom skin diffuses the best, 1-wall on bottom layer
